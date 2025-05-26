@@ -1,9 +1,4 @@
-/* ============================================================================
-   ELEGANT PRODUCTION REPORT SYSTEM - MOBILE-FIRST DESIGN
-   Clean, professional documentation interface with subtle accent colors
-   ============================================================================ */
-
-/* RESET & BASE STYLES */
+/*STYLES */
 * {
     margin: 0;
     padding: 0;
@@ -290,7 +285,6 @@ body {
     box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1) !important;
 }
 
-/* MCP Section specific styling */
 .batch-section[style*="fed6e3"] {
     background: #fdf2f8;
     border-color: #fbcfe8;
@@ -482,12 +476,12 @@ body {
     .form-group select,
     .form-group textarea {
         padding: 14px 16px;
-        font-size: 16px; /* Prevents zoom on iOS */
+        font-size: 16px; 
     }
     
     .shift-tab {
         padding: 14px;
-        min-height: 48px; /* Better touch target */
+        min-height: 48px;
     }
     
     .btn {
