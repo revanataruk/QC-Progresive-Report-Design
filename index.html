@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Memasak Kream - Quality Control</title>
+    <link rel="stylesheet" href="style.css">
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>FORM LAPORAN CREAM BSC & MCP</h1>
+            <p>PT ANUGRAH MITRA MAJU</p>
+        </div>
+
+        <div class="shift-selector">
+            <button class="shift-tab active" onclick="showShift(1)">
+                🌅 SHIFT 1<br>                
+            </button>
+            <button class="shift-tab" onclick="showShift(2)">
+                🌤️ SHIFT 2<br>                
+            </button>
+            <button class="shift-tab" onclick="showShift(3)">
+                🌙 SHIFT 3<br>
+            </button>
+        </div>
+
+        <!-- SHIFT 1----------------------------------------------------------------------------->
+        <div id="shift1" class="shift-content active">
+            <div class="info-panel">
+                <h4>SHIFT 1 - PAGI (07:00-15:00)</h4>
+                <p>Mulai laporan harian baru. Data akan diteruskan ke shift berikutnya.</p>
+            </div>
+
+            <form id="form1">
+                <div class="form-group production-code-section">
+                    <label class="production-label">Kode Produksi</label>
+                    <input type="text" name="kode_produksi" maxlength="10" placeholder="Contoh: 010151" class="production-input" required>
+
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Top Gap Storage BSC (Cm)</label>
+                            <input type="number" name="topgap_bsc" step="0.1" placeholder="0" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Top Gap Storage MCP (Cm)</label>
+                            <input type="number" name="topgap_mcp" step="0.1" placeholder="0" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="batch-section">
+                    <h3>BALLMILL BSC</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Jumlah Start Batch dalam Ballmill (kg)</label>
+                            <input type="number" name="start_batch_bsc" step="0.1" placeholder="0" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Jumlah Proses BSC Hari Ini (kg)</label>
+                            <input type="number" name="proses_bsc" step="0.1" placeholder="0" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Jumlah End Batch dalam Ballmill (kg)</label>
+                            <input type="number" name="end_batch_bsc" step="0.1" placeholder="0" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Jumlah Pemakian (kg)</label>
+                            <input type="number" name="usage_bsc" step="0.1" placeholder="0" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="batch-section" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                    <h3>BALLMILL MCP</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Jumlah Start Batch dalam Ballmill (kg)</label>
+                            <input type="number" name="start_batch_mcp" step="0.1" placeholder="0" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Jumlah Proses MCP Hari Ini (kg)</label>
+                            <input type="number" name="proses_mcp" step="0.1" placeholder="0" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Jumlah End Batch dalam Ballmill (kg)</label>
+                            <input type="number" name="end_batch_mcp" step="0.1" placeholder="0" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Jumlah Pemakian (kg)</label>
+                            <input type="number" name="usage_mcp" step="0.1" placeholder="0" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Keterangan Shift </label>
+                    <textarea name="keterangan_shift" rows="4" placeholder="Keterangan kendala atau catatan penting shift ini..."></textarea>
+                </div>
+
+                <div class="form-group verification-section">
+                    <label>Kode Verifikasi Shift 1</label>
+                    <input type="password" 
+                        name="kode_verifikasi1" 
+                        maxlength="8" 
+                        placeholder="Masukkan kode verifikasi" 
+                        required>
+                    <div class="verification-status"></div>
+                </div>
+            </form>
+        </div>
+
+        <!-- SHIFT 2----------------------------------------------------------------------------->
+        <div id="shift2" class="shift-content">
+            <div class="info-panel">
+                <h4>SHIFT 2 - SORE (15:00-23:00)</h4>
+                <p>Mulai laporan harian baru. Data akan diteruskan ke shift berikutnya.</p>
+            </div>
+            
+            <div class="file-upload">
+                <h3>📄 Upload PDF dari Shift Sebelumnya</h3>
+                <p>Upload file PDF laporan dari shift sebelumnya untuk melanjutkan data</p>
+                <input type="file" id="pdfUpload2" accept=".pdf" onchange="loadPreviousData(2)">
+                <div id="uploadStatus2" style="margin-top: 10px;"></div>
+            </div>
+
+            <form id="form2">
+                <div class="form-group production-code-section">
+                    <label class="production-label">Kode Produksi</label>
+                    <input type="text" name="kode_produksi" maxlength="10" placeholder="Contoh: 010151" class="production-input" required>
+
+                </div>
+                
+                <div class="form-grid">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Top Gap Storage BSC (Cm)</label>
+                            <input type="number" name="topgap_bsc" step="0.1" placeholder="0" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Top Gap Storage MCP (Cm)</label>
+                            <input type="number" name="topgap_mcp" step="0.1" placeholder="0" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="batch-section">
+                    <h3>BALLMILL BSC</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Jumlah Start Batch dalam Ballmill (kg)</label>
+                            <input type="number" name="start_batch_bsc" step="0.1" placeholder="0" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Jumlah Proses BSC Hari Ini (kg)</label>
+                            <input type="number" name="proses_bsc" step="0.1" placeholder="0" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Jumlah End Batch dalam Ballmill (kg)</label>
+                            <input type="number" name="end_batch_bsc" step="0.1" placeholder="0" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Jumlah Pemakian (kg)</label>
+                            <input type="number" name="usage_bsc" step="0.1" placeholder="0" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="batch-section" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                    <h3>BALLMILL MCP</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Jumlah Start Batch dalam Ballmill (kg)</label>
+                            <input type="number" name="start_batch_mcp" step="0.1" placeholder="0" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Jumlah Proses MCP Hari Ini (kg)</label>
+                            <input type="number" name="proses_mcp" step="0.1" placeholder="0" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Jumlah End Batch dalam Ballmill (kg)</label>
+                            <input type="number" name="end_batch_mcp" step="0.1" placeholder="0" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Jumlah Pemakian (kg)</label>
+                            <input type="number" name="usage_mcp" step="0.1" placeholder="0" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Keterangan Shift </label>
+                    <textarea name="keterangan_shift" rows="4" placeholder="Keterangan kendala atau catatan penting shift ini..."></textarea>
+                </div>
+
+                <div class="form-group verification-section">
+                    <label>Kode Verifikasi Shift 2</label>
+                    <input type="password" 
+                        name="kode_verifikasi2" 
+                        maxlength="8" 
+                        placeholder="Masukkan kode verifikasi" 
+                        required>
+                    <div class="verification-status"></div>
+                </div>
+            </form>
+        </div>
+
+        <!-- SHIFT 3----------------------------------------------------------------------------->
+        <div id="shift3" class="shift-content">
+            <div class="info-panel">
+                <h4>SHIFT 3 - MALAM (23:00-07:00)</h4>
+                <p>Mulai laporan harian baru. Data akan diteruskan ke shift berikutnya.</p>
+            </div>
+
+            <div class="file-upload">
+                <h3>📄 Upload PDF dari Sebelumnya</h3>
+                <p>Upload file PDF laporan dari shift sebelumnya untuk melanjutkan data</p>
+                <input type="file" id="pdfUpload3" accept=".pdf" onchange="loadPreviousData(3)">
+                <div id="uploadStatus3" style="margin-top: 10px;"></div>
+            </div>
+
+            <form id="form3">
+                <div class="form-group production-code-section">
+                    <label class="production-label">Kode Produksi</label>
+                    <input type="text" name="kode_produksi" maxlength="10" placeholder="Contoh: 010151" class="production-input" required>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Top Gap Storage BSC (Cm)</label>
+                        <input type="number" name="topgap_bsc" step="0.1" placeholder="0" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Top Gap Storage MCP (Cm)</label>
+                        <input type="number" name="topgap_mcp" step="0.1" placeholder="0" required>
+                    </div>
+                </div>
+
+                <div class="batch-section">
+                    <h3>BALLMILL BSC</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Jumlah Start Batch dalam Ballmill (kg)</label>
+                            <input type="number" name="start_batch_bsc" step="0.1" placeholder="0" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Jumlah Proses BSC Hari Ini (kg)</label>
+                            <input type="number" name="proses_bsc" step="0.1" placeholder="0" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Jumlah End Batch dalam Ballmill (kg)</label>
+                            <input type="number" name="end_batch_bsc" step="0.1" placeholder="0" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Jumlah Pemakian (kg)</label>
+                            <input type="number" name="usage_bsc" step="0.1" placeholder="0" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="batch-section" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                    <h3>BALLMILL MCP</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>Jumlah Start Batch dalam Ballmill (kg)</label>
+                            <input type="number" name="start_batch_mcp" step="0.1" placeholder="0" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Jumlah Proses MCP Hari Ini (kg)</label>
+                            <input type="number" name="proses_mcp" step="0.1" placeholder="0" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Jumlah End Batch dalam Ballmill (kg)</label>
+                            <input type="number" name="end_batch_mcp" step="0.1" placeholder="0" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Jumlah Pemakian (kg)</label>
+                            <input type="number" name="usage_mcp" step="0.1" placeholder="0" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Keterangan Shift </label>
+                    <textarea name="keterangan_shift" rows="4" placeholder="Keterangan kendala atau catatan penting shift ini..."></textarea>
+                </div>
+
+                <div class="form-group verification-section">
+                    <label>Kode Verifikasi Shift 3</label>
+                    <input type="password" 
+                        name="kode_verifikasi3" 
+                        maxlength="8" 
+                        placeholder="Masukkan kode verifikasi" 
+                        required>
+                    <div class="verification-status"></div>
+                </div>
+            </form>
+        </div>
+
+        <!-- SHIFT end----------------------------------------------------------------------------->
+        
+        <div class="actions">
+            <button class="btn btn-primary" onclick="generatePDF()">
+                Generate & Download PDF
+            </button>
+            <button class="btn btn-success" onclick="previewData()">
+                Preview Data
+            </button>
+        </div>
+    </div>
+<script>
+// Global variables
+let currentShift = 1;
+let allShiftData = {};
+
+// Function to show/hide shifts
+function showShift(shiftNumber) {
+    // Hide all shift contents
+    document.querySelectorAll('.shift-content').forEach(content => {
+        content.classList.remove('active');
+    });
+    
+    // Remove active class from all tabs
+    document.querySelectorAll('.shift-tab').forEach(tab => {
+        tab.classList.remove('active');
+    });
+    
+    // Show selected shift
+    document.getElementById(`shift${shiftNumber}`).classList.add('active');
+    
+    // Add active class to selected tab
+    document.querySelectorAll('.shift-tab')[shiftNumber - 1].classList.add('active');
+    
+    // Update current shift
+    currentShift = shiftNumber;
+}
+    </script>
+</body>
+</html>
