@@ -1,78 +1,78 @@
-# QC Progressive Report Web Aplication (Design)
+# QC Progressive Report Web Application (Design)
 
-## 📋 Deskripsi
-Aplikasi web untuk laporan produksi harian Departemen Quality Control - Cream Processing PT. Anugrah Mitra Maju. Sistem ini memungkinkan 3 shift kerja untuk melakukan input data secara berkesinambungan dalam satu hari produksi.
+## 📋 Description
+A web application for daily production reports from the Quality Control Department - Cream Processing at PT. Anugrah Mitra Maju. This system enables 3 work shifts to perform continuous data input within a single production day.
 
-## 🎯 Fitur Utama
-- **Multi-Shift Interface**: Tiga tab shift dengan jam kerja berbeda
-  - 🌅 **Shift 1**: 07:00-15:00 (Pagi)
-  - 🌤️ **Shift 2**: 15:00-23:00 (Sore) 
-  - 🌙 **Shift 3**: 23:00-07:00 (Malam)
+## 🎯 Main Features
+- **Multi-Shift Interface**: Three shift tabs with different working hours
+  - 🌅 **Shift 1**: 07:00-15:00 (Morning)
+  - 🌤️ **Shift 2**: 15:00-23:00 (Afternoon) 
+  - 🌙 **Shift 3**: 23:00-07:00 (Night)
 
-- **Progressive Data Entry**: Shift berikutnya dapat melanjutkan data dari shift sebelumnya
-- **PDF Generation**: Generate laporan dalam format PDF
-- **Data Security**: Sistem verifikasi untuk mencegah manipulasi data
-- **Responsive Design**: Optimized untuk desktop dan mobile
+- **Progressive Data Entry**: Subsequent shifts can continue data from previous shifts
+- **PDF Generation**: Generate reports in PDF format
+- **Data Security**: Verification system to prevent data manipulation
+- **Responsive Design**: Optimized for desktop and mobile
 
-## 🔒 Sistem Keamanan
+## 🔒 Security System
 
-### Kode Verifikasi
-- Setiap shift memiliki kode verifikasi unik dan rahasia
-- Mencegah shift lain memalsukan data shift tertentu
-- Harus diisi sebelum generate PDF
+### Verification Code
+- Each shift has a unique and confidential verification code
+- Prevents other shifts from falsifying specific shift data
+- Must be filled before generating PDF
 
-### Kode Produksi
-- Format berisi: hari-tanggal-tahun-shift-nama_shift
-- Contoh: `010151A` 
-- Mencegah input data dari hari yang berbeda
-- Memastikan kontinuitas produksi harian
+### Production Code
+- Format contains: day-date-year-shift-shift_name
+- Example: `010151A` 
+- Prevents data input from different days
+- Ensures daily production continuity
 
-## 🔄 Alur Kerja
+## 🔄 Workflow
 
-### Shift 1 (Pagi)
-- Memulai laporan harian baru
-- Input data produksi awal
-- Generate PDF untuk diteruskan ke shift berikutnya
+### Shift 1 (Morning)
+- Start a new daily report
+- Input initial production data
+- Generate PDF to be passed to the next shift
 
-### Shift 2 (Sore)
-- **Opsi 1**: Upload PDF dari Shift 1 untuk melanjutkan data
-- **Opsi 2**: Memulai laporan baru jika produksi dimulai dari shift 2
-- Generate PDF gabungan (Shift 1 + 2) atau PDF baru
+### Shift 2 (Afternoon)
+- **Option 1**: Upload PDF from Shift 1 to continue data
+- **Option 2**: Start a new report if production begins from shift 2
+- Generate combined PDF (Shift 1 + 2) or new PDF
 
-### Shift 3 (Malam)
-- **Opsi 1**: Upload PDF dari shift sebelumnya untuk melanjutkan
-- **Opsi 2**: Memulai laporan baru jika produksi dimulai dari shift 3
-- Generate PDF final untuk satu hari produksi
+### Shift 3 (Night)
+- **Option 1**: Upload PDF from previous shift to continue
+- **Option 2**: Start a new report if production begins from shift 3
+- Generate final PDF for one production day
 
-## 📊 Data yang Dikumpulkan
+## 📊 Data Collected
 
 ### Storage Data
 - Top Gap Storage BSC (cm)
 - Top Gap Storage MCP (cm)
 
 ### Ballmill BSC
-- Jumlah Start Batch dalam Ballmill (kg)
-- Jumlah Proses BSC Hari Ini (kg)
-- Jumlah End Batch dalam Ballmill (kg)
-- Jumlah Pemakaian (kg)
+- Start Batch Amount in Ballmill (kg)
+- BSC Process Amount Today (kg)
+- End Batch Amount in Ballmill (kg)
+- Usage Amount (kg)
 
 ### Ballmill MCP
-- Jumlah Start Batch dalam Ballmill (kg)
-- Jumlah Proses MCP Hari Ini (kg)
-- Jumlah End Batch dalam Ballmill (kg)
-- Jumlah Pemakaian (kg)
+- Start Batch Amount in Ballmill (kg)
+- MCP Process Amount Today (kg)
+- End Batch Amount in Ballmill (kg)
+- Usage Amount (kg)
 
-### Informasi Tambahan
-- Keterangan shift (kendala/catatan penting)
-- Kode produksi
-- Kode verifikasi shift
+### Additional Information
+- Shift notes (constraints/important notes)
+- Production code
+- Shift verification code
 
-## 🛠️ Teknologi
+## 🛠️ Technology
 
 ### Frontend (Current - Design Only)
-- **HTML5**: Struktur aplikasi
-- **CSS3**: Styling dengan responsive design
-- **JavaScript**: Interaksi dasar UI (tab switching)
+- **HTML5**: Application structure
+- **CSS3**: Styling with responsive design
+- **JavaScript**: Basic UI interactions (tab switching)
 
 ### Backend (In Development)
 - PDF generation functionality
@@ -80,7 +80,7 @@ Aplikasi web untuk laporan produksi harian Departemen Quality Control - Cream Pr
 - File upload handling
 - Verification system
 
-## 📁 Struktur File
+## 📁 File Structure
 ```
 qc-progressive-report/
 ├── index.html          # Main HTML file
@@ -88,37 +88,37 @@ qc-progressive-report/
 ├── README.md           # Documentation
 ```
 
-## 🚀 Cara Penggunaan
+## 🚀 Usage Guide
 
 ### Setup
-1. Clone repository ini
-2. Buka `index.html` di web browser
-3. Pilih shift yang sesuai dengan jam kerja
+1. Clone this repository
+2. Open `index.html` in web browser
+3. Select the appropriate shift according to working hours
 
-### Input Data Shift 1
-1. Masukkan kode produksi
-2. Isi semua data storage dan ballmill
-3. Tambahkan keterangan jika diperlukan
-4. Masukkan kode verifikasi shift 1
+### Shift 1 Data Input
+1. Enter production code
+2. Fill in all storage and ballmill data
+3. Add notes if necessary
+4. Enter shift 1 verification code
 5. Generate PDF
 
-### Input Data Shift 2/3
-1. **Jika melanjutkan**: Upload PDF dari shift sebelumnya
-2. **Jika memulai baru**: Langsung isi form
-3. Lengkapi semua data yang diperlukan
-4. Masukkan kode verifikasi yang sesuai
+### Shift 2/3 Data Input
+1. **If continuing**: Upload PDF from previous shift
+2. **If starting new**: Directly fill the form
+3. Complete all required data
+4. Enter the appropriate verification code
 5. Generate PDF
 
-## ⚠️ Status Pengembangan
+## ⚠️ Development Status
 
-### ✅ Selesai (Design Phase)
+### ✅ Completed (Design Phase)
 - UI/UX Design
 - Responsive layout
 - Form structure
 - Tab navigation
 - CSS styling
 
-### 🔄 Dalam Pengembangan (Backend Team)
+### 🔄 In Development (Backend Team)
 - PDF generation functionality
 - File upload processing
 - Data validation
@@ -126,7 +126,7 @@ qc-progressive-report/
 - Data persistence
 - Progressive data merging
 
-## 📱 Kompatibilitas
+## 📱 Compatibility
 - ✅ Chrome/Chromium
 - ✅ Firefox
 - ✅ Safari
@@ -141,25 +141,25 @@ qc-progressive-report/
 - [ ] Historical report viewing
 - [ ] Email notification system
 
-## 👥 Tim Pengembangan
+## 👥 Development Team
 - **Frontend/Design**: Current contributor
-- **Backend/Functionality**: Departemen IT (In Progress)
+- **Backend/Functionality**: IT Department (In Progress)
 - **Quality Control**: PT. Anugrah Mitra Maju
 
-## 📞 Kontak
-Untuk pertanyaan teknis atau feedback:
+## 📞 Contact
+For technical questions or feedback:
 - diwangkararevan@gmail.com
 
 ---
 
-## 📝 Catatan Penting
-- Aplikasi ini masih dalam tahap **DESIGN ONLY**
-- Fungsionalitas backend sedang dikembangkan oleh tim terpisah
-- UI/UX sudah final dan siap untuk implementasi backend
-- Tidak ada data yang tersimpan dalam versi current ini
+## 📝 Important Notes
+- This application is still in **DESIGN ONLY** phase
+- Backend functionality is being developed by a separate team
+- UI/UX is finalized and ready for backend implementation
+- No data is stored in the current version
 
-## 🤝 Kontribusi
-Saat ini proyek ini dalam fase design completion. Kontribusi backend akan dihandle oleh departemen IT internal.
+## 🤝 Contribution
+Currently, this project is in the design completion phase. Backend contributions will be handled by the internal IT department.
 
 ---
 *Last updated: May 2025*
